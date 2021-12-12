@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+    <script type="module" src="main.mjs"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="login">
+      <h1>Logirajte se</h1>
+      <form action="">
+        Nickname:
+        <input type="text" name="" id="nick" value="Zvonimir" required />
+        Password:
+        <input type="text" name="" id="pass" value="Drazina" required />
+      </form>
+      <input type="submit" name="" id="prijava" value="logiraj se" />
+      <input type="submit" name="" id="odjava" value="odjavi se" />
+      <input type="submit" name="" id="provjeriStanje" value="provjeriStanje" />
+      <div id="dohvacanjePor">
+        <input type="submit" name="" id="svePor" value="Dohvati Sve Poruke" />
+        Upiši željeni index od kojeg želiš da se dohvate poruke:
+        <input type="number" min="0" name="" id="index" value="index poruke" />
+        <input type="submit" name="" id="odPor" value="Dohvati por od indexa" />
+        Upiši željeni broj poruka koje želiš da ti se prikažu:
+        <input type="number" min="0" id="n" value="n broj poruka" />
+        <input
+          type="submit"
+          name=""
+          id="zadnjihPor"
+          value="Dohvati zadnjih n poruka"
+        />
+      </div>
+
+      <!-- Ovaj input type submit moraš vratiti u form i skuziti kako e.preventdefalut() -->
+    </div>
+    <div id="chatApp">
+      <div id="slanje">
+        <input type="text" name="novaPoruka" id="novaPoruka" />
+        <input type="submit" name="posalji" id="posalji" value="Posalji" />
+      </div>
+      <div id="poruke">
+        <h2 id="imeSobe">Ime sobe:</h2>
+      </div>
+      <div id="info">
+        <div><h3>Lista online korisnika</h3></div>
+        <div><h3>Lista ljudi u sobi</h3></div>
+        <div id="aktivneSobe"><h3>Lista aktivnih soba</h3></div>
+      </div>
+    </div>
+  </body>
+</html>

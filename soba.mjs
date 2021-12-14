@@ -5,7 +5,7 @@ export default class Soba {
     this.tipSobe = "";
     this.osoba1 = user.nickname;
     this.osoba2 = "";
-    this.poruke = [];
+    this.poruke = []; //ove metode dohvati sve por, od indexa i dohvati n poruke bi triba pospremati u ovaj properti, napravi to kasnije za sad ih samo prikazujem na keranu
     this.listaOsoba = [];
   }
 

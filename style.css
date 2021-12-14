@@ -48,10 +48,13 @@
 }
 
 #dohvacanjePor {
-  margin-top: 30px;
+  margin-top: 15px;
   display: flex;
-  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
 }
+
 /* odnosi se na sve por tj. paragrafe: */
 #poruke > p {
   margin: 10px;
@@ -80,4 +83,14 @@ h3 {
   padding: 5px;
   border-radius: 20%;
   margin: 10px;
+}
+#kontrole {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#newRoom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

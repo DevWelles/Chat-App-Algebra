@@ -57,6 +57,7 @@ const User = {
       aktivneSobe.append(udiUsobu);
       udiUsobu.innerText = `Udi u ${soba.imeSobe}`
       //udiUsobu.setAttribute('id', soba.id) //ipak mi netriba id
+      //ova metoda ispod na onclick handleru je definirana unutar classe Soba
       udiUsobu.onclick = () =>{//svaki botun ce imati ovu onclick funkciju definiranu u classu
         soba.udjiUSobu(this); //moram to jos dobro definirati i viditi clousure i u kojem je kontekstu this triba bi oznacavati usera
       };
@@ -85,7 +86,7 @@ const User = {
     console.log('trenutni user je:')
     console.log(this);
     document.getElementById("chatApp").style.display = "flex";
-    this.dohvatiSobe();
+    this.dohvatiSobe(); // prilikom logina odma dohvati sve sobe
     document.getElementById("imeSobe").innerText= `Ime sobe: ${jsObject.imeSobe}`
   },
 
@@ -114,6 +115,37 @@ const User = {
     p.innerText = `${jsObject.nick}: ${jsObject.poruka}
     at: ${jsObject.vrijeme}`;
   }, //trebam napravit da mi se poruke pune od dolje prema gore tj da mi prva poruka se pojavi dolje
+
+  dodajJavnuSobu: async function () {
+    let imeSobe = document.getElementById("novaSoba").value;
+    let provjera = true;
+    if (this.listaJavnihSoba.length < 1 && imeSobe == ""){//nakon što resetiram propertije u Useru onda napravim ovu provjeru u slcuaju da netko bez imena zeli stvorit sobu
+      alert("Must enter a name for new room")             //a backend mije vratiaj vec masu soba sa id i čim se logiram one su autoamtksi u mom Useru pa onda ih maknem sa botunom reset
+      console.log("radi li 1.")
+      provjera = false                                        // ali i dalje mi ostaju u backendu pa moram reći profi da mi ih makne
+    }
+    this.listaJavnihSoba.forEach(soba => {//brzinska provjera ako user upiše ime sobe koja već postoji ili bez imena
+      if(soba.imeSobe === imeSobe || imeSobe == ""){
+        alert("The room with that name already exist, please enter a different name"); //zbog ovog mi trenutno zašteka sve jer mi je backend vratiaj masu soba sa istim imenom ali razlicitim id-em
+        imeSobe = "";
+        document.getElementById("novaSoba").value = ""
+        provjera = false 
+      } 
+    });
+    if (provjera == true) {
+      console.log("radi li zadnja")
+      const response = await fetch(`https://www.digital-abundance.hr/chatAPI/dodajSobu.php?imeSobe=${imeSobe}`);
+      const jsObject = await response.json();
+      console.log(jsObject);
+      const soba = new Soba(this);
+      soba.id = jsObject.idSobe;
+      soba.imeSobe = imeSobe;
+      soba.tipSobe = 'Javna';
+      console.log(soba)
+      this.listaJavnihSoba.push(soba)
+    }
+  },
+ 
 };
 
 export default User

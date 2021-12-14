@@ -20,19 +20,38 @@
       <input type="submit" name="" id="prijava" value="logiraj se" />
       <input type="submit" name="" id="odjava" value="odjavi se" />
       <input type="submit" name="" id="provjeriStanje" value="provjeriStanje" />
-      <div id="dohvacanjePor">
-        <input type="submit" name="" id="svePor" value="Dohvati Sve Poruke" />
-        Upiši željeni index od kojeg želiš da se dohvate poruke:
-        <input type="number" min="0" name="" id="index" value="index poruke" />
-        <input type="submit" name="" id="odPor" value="Dohvati por od indexa" />
-        Upiši željeni broj poruka koje želiš da ti se prikažu:
-        <input type="number" min="0" id="n" value="n broj poruka" />
-        <input
-          type="submit"
-          name=""
-          id="zadnjihPor"
-          value="Dohvati zadnjih n poruka"
-        />
+      <button id="reset">Resetiraj sve propertije Objekta User</button>
+      <div id="kontrole">
+        <div id="dohvacanjePor">
+          <div>
+            <h4>Dohvaćanje Poruka iz trenutne sobe:</h4>
+            <button id="svePor" value="Dohvati Sve Poruke">
+              Dohvati Sve Poruke
+            </button>
+          </div>
+          <div>
+            <h4>Upiši željeni index od kojeg želiš da se dohvate poruke:</h4>
+            <input
+              type="number"
+              min="0"
+              name=""
+              id="index"
+              value="index poruke"
+            />
+            <button id="odPor">Dohvati por od indexa</button>
+          </div>
+          <div>
+            <h4>Upiši željeni broj poruka koje želiš da ti se prikažu:</h4>
+            <input type="number" min="0" id="n" value="n broj poruka" />
+            <button id="zadnjihPor">Dohvati zadnjih n poruka</button>
+          </div>
+        </div>
+        <div id="newRoom">
+          <h4>Create new room:</h4>
+          <h4>Upiši ime nove sobe:</h4>
+          <input type="text" name="" id="novaSoba" value="" />
+          <button id="createNewRoom">Create new Room</button>
+        </div>
       </div>
 
       <!-- Ovaj input type submit moraš vratiti u form i skuziti kako e.preventdefalut() -->
@@ -48,7 +67,10 @@
       <div id="info">
         <div><h3>Lista online korisnika</h3></div>
         <div><h3>Lista ljudi u sobi</h3></div>
-        <div id="aktivneSobe"><h3>Lista aktivnih soba</h3></div>
+        <div id="aktivneSobe">
+          <h3>Lista aktivnih soba</h3>
+          <button id="dohvatiSobe">Dohvati sobe</button>
+        </div>
       </div>
     </div>
   </body>

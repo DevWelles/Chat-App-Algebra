@@ -25,7 +25,7 @@ posaljiPor.onclick = () => {
 
 const svePor = document.getElementById("svePor");
 svePor.onclick = () => {
-  const soba = new Soba (User);
+  const soba = new Soba (User); //tu ce uzeti id sobe preko usera 
   console.log(soba)
   soba.dohvatiSvePoruke();
 };
@@ -40,5 +40,25 @@ const nBrojPor = document.getElementById("zadnjihPor");
 nBrojPor.onclick = () => {
   const soba = new Soba (User);
   soba.dohvatiNBrojPor();
+}
+
+const createNewRoom = document.getElementById("createNewRoom");
+createNewRoom.onclick = () => {
+  User.dodajJavnuSobu();
+}
+
+const dohvatiSobe = document.getElementById("dohvatiSobe");
+dohvatiSobe.onclick = () => {
+  User.dohvatiSobe();
+}
+
+const reset = document.getElementById("reset")
+reset.onclick = () =>  {
+  User.listaJavnihSoba = [];
+  User.listaPrivatnihSoba = [];
+  User.trenSoba = "";
+  User.trenSobaId = null;
+  
+  console.log(User)
 }
 
